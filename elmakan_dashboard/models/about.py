@@ -9,7 +9,6 @@ class AboutAlmakaan(models.Model):
     _description = "this module is for about elmakan"
     _rec_name ='text'
     text=fields.Text(string='Text',default='')
-    video = fields.Binary(string='Video',default='')
     video_url= fields.Char(string='video url',default='')
     content_ids = fields.Many2many('content.elmakan' , string= 'Content')
     hero_ids = fields.Many2many('hero.section.elmakan' , string= 'Heros')
@@ -17,4 +16,3 @@ class AboutAlmakaan(models.Model):
     state = fields.Boolean(string='On WebSite',default=False)
 
 
-   
