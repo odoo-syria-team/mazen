@@ -8,7 +8,7 @@
             <tree>
                 <field name="about_id" />
                 <field name="hero_id" />
-                <field name="state" />
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -62,6 +62,7 @@
                         </page>
                         
                         
+                        
                     </notebook>
                 </sheet>
             </form>
@@ -83,7 +84,7 @@
         name='Home'
         parent='almakaan_root'
         action="Home_elmakan_action_window_elmakan"
-        sequence="34" />
+        sequence="1" />
     
 
 </odoo>

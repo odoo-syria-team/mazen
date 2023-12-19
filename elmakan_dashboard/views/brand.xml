@@ -100,6 +100,6 @@
         name='Brand'
         parent='almakaan_root'
         action="brand_action_window_elmakan"
-        sequence="12" />
+        sequence="7" />
 
 </odoo>
