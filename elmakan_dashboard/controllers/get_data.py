@@ -570,7 +570,7 @@ class Partners(http.Controller):
                     "gallery": [
                             {
                             "image": gallery.image_url,
-                            "title": gallery.title
+                            "text": gallery.text
                             }
                         for gallery in item.gallery_ids],   
                         
