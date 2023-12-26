@@ -7,3 +7,6 @@ class BoxesAlmakaan(models.Model):
 
     text =fields.Text(string='text')
     title =fields.Char(string='title')
+
+    category_id = fields.Many2one('category.elmakan' , string='')
+    labelcontent_id = fields.Many2one('labelcontent.elmakan' , string='')

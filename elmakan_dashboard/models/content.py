@@ -9,6 +9,12 @@ class ContentAlmakaan(models.Model):
     image = fields.Binary(string='Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
     
+    about_id = fields.Many2one('about.elmakan' , string='')
+    brand_id = fields.Many2one('brand.elmakan' , string='')
+    category_id = fields.Many2one('category.elmakan' , string='')
+    feature_id = fields.Many2one('feature.elmakan' , string='')
+    home_id = fields.Many2one('home.elmakan' , string='')
+    labelcontent_id = fields.Many2one('labelcontent.elmakan' , string='')
 
     @api.depends('image')
     def _compute_image_url(self):

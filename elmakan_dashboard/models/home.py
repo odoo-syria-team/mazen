@@ -12,7 +12,8 @@ class HomeAlmakaan(models.Model):
     hero_id=fields.Many2one('hero.section.elmakan',string='Hero')
     # features_ids = fields.One2many('home.features.elmakan' , 'home_id' , string= 'Features')
     state = fields.Boolean(string='On WebSite',default=False)
-    content_ids = fields.Many2many('content.elmakan',string= 'Content')
+    # content_ids = fields.Many2many('content.elmakan',string= 'Content')
+    content_ids = fields.One2many('content.elmakan' ,'home_id', string= 'Content')
     
     features_ids = fields.Many2many('feature.elmakan',string='Features')
 # class HomeFeaturesAlmakaan(models.Model):

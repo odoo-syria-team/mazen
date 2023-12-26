@@ -9,9 +9,12 @@ class BrandAlmakaan(models.Model):
     slug = fields.Char(string='Slug',default='',compute='_compute_slug')
     image = fields.Binary('Image')
     title = fields.Text('Title')
-    description_ids = fields.Many2many('description.elmakan' , string='Description')
-    content_ids = fields.Many2many('content.elmakan' ,string='Content')
-    gallery_ids = fields.Many2many('gallery.elmakan' , string='Gallery')
+    # description_ids = fields.Many2many('description.elmakan' , string='Description')
+    description_ids = fields.One2many('description.elmakan' ,'brand_id', string= 'Description')
+    # content_ids = fields.Many2many('content.elmakan' ,string='Content')
+    content_ids = fields.One2many('content.elmakan' ,'brand_id', string= 'Content')
+    # gallery_ids = fields.Many2many('gallery.elmakan' , string='Gallery')
+    gallery_ids = fields.One2many('gallery.elmakan' ,'brand_id', string= 'Gallery')
     image_url = fields.Char("image url", compute='_compute_image_url')
     
     isTopBrand = fields.Boolean(string='isTopBrand',default=False)
@@ -45,6 +48,8 @@ class BrandSliderAlmakaan(models.Model):
     image = fields.Binary('Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
     state = fields.Boolean(string='On WebSite',default=False)
+
+    slider_id = fields.Many2one('labelcontent.elmakan' , string='')
 
     @api.depends('image')
     def _compute_image_url(self):

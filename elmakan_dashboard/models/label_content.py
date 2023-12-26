@@ -9,9 +9,13 @@ class LabelContentAlmakaan(models.Model):
     title = fields.Text(string='Title',default='')
     text = fields.Char(string='Text',default='')
 
-    content_ids = fields.Many2many('content.elmakan' , string= 'Content')
-    slider_ids = fields.Many2many('brand.slider.elmakan' , string= 'Sliders')
-    box_ids = fields.Many2many('boxes.elmakan' , string= 'Boxs')
+    # content_ids = fields.Many2many('content.elmakan' , string= 'Content')
+    content_ids = fields.One2many('content.elmakan' ,'labelcontent_id', string= 'Content')
+    # slider_ids = fields.Many2many('brand.slider.elmakan' , string= 'Sliders')
+    slider_ids = fields.One2many('brand.slider.elmakan' ,'slider_id', string= 'Sliders')
+    # box_ids = fields.Many2many('boxes.elmakan' , string= 'Boxs')
+    
+    box_ids = fields.One2many('boxes.elmakan' ,'labelcontent_id', string= 'Boxs')
     state = fields.Boolean(string='On WebSite',default=False)
 
 # class LContentAlmakaan(models.Model): 

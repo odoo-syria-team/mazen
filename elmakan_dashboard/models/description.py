@@ -7,3 +7,5 @@ class DescriptionAlmakaan(models.Model):
     title = fields.Text('Title')
     description = fields.Text('Description')
     text = fields.Text('Text')
+    
+    brand_id = fields.Many2one('brand.elmakan' , string='')

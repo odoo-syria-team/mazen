@@ -10,9 +10,11 @@ class AboutAlmakaan(models.Model):
     _rec_name ='text'
     text=fields.Text(string='Text',default='')
     video_url= fields.Char(string='video url',default='')
-    content_ids = fields.Many2many('content.elmakan' , string= 'Content')
+    content_ids = fields.One2many('content.elmakan' ,'about_id', string= 'Content')
     hero_ids = fields.Many2many('hero.section.elmakan' , string= 'Heros')
-    gallery_ids = fields.Many2many('gallery.elmakan' , string= 'Gallery')
+    # gallery_ids = fields.Many2many('gallery.elmakan' , string= 'Gallery')
+    gallery_ids = fields.One2many('gallery.elmakan' ,'about_id', string= 'Gallery')
+    
     state = fields.Boolean(string='On WebSite',default=False)
-
+    # course_sections_ids =fields.One2many('section', 'course_id', string='Sections')
 
