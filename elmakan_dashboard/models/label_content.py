@@ -8,7 +8,19 @@ class LabelContentAlmakaan(models.Model):
     _rec_name ='title'
     title = fields.Text(string='Title',default='')
     text = fields.Char(string='Text',default='')
-
+    slug = fields.Char(string='Slug',default='',compute='_compute_slug')
+    link = fields.Char(string='Link',default='')
+    image = fields.Binary(string='Image')
+    image_url = fields.Char("image url", compute='_compute_image_url')
+    @api.depends('image')
+    def _compute_image_url(self):
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        print('base_url' , base_url)
+        for obj in self:
+            if obj.image:
+                obj.image_url= base_url + '/web/image?' + 'model=labelcontent.elmakan&id=' + str(obj.id) + '&field=image'
+            else:
+                obj.image_url=''
     # content_ids = fields.Many2many('content.elmakan' , string= 'Content')
     content_ids = fields.One2many('content.elmakan' ,'labelcontent_id', string= 'Content')
     # slider_ids = fields.Many2many('brand.slider.elmakan' , string= 'Sliders')
@@ -16,8 +28,14 @@ class LabelContentAlmakaan(models.Model):
     # box_ids = fields.Many2many('boxes.elmakan' , string= 'Boxs')
     
     box_ids = fields.One2many('boxes.elmakan' ,'labelcontent_id', string= 'Boxs')
-    state = fields.Boolean(string='On WebSite',default=False)
-
+    # state = fields.Boolean(string='On WebSite',default=False)
+    @api.depends('title')
+    def _compute_slug(self):
+        for record in self:
+            if record.title:
+                record.slug = record.title.lower().replace(' ','-') +f'-{record.id}'
+            else:
+                record.slug='' 
 # class LContentAlmakaan(models.Model): 
 #     _name ='label.content.elmakan'
 

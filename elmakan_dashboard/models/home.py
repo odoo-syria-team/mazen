@@ -16,6 +16,7 @@ class HomeAlmakaan(models.Model):
     content_ids = fields.One2many('content.elmakan' ,'home_id', string= 'Content')
     
     features_ids = fields.Many2many('feature.elmakan',string='Features')
+    label_content_ids = fields.Many2many('labelcontent.elmakan',string='Labels')
 # class HomeFeaturesAlmakaan(models.Model):
 #     _name = 'home.features.elmakan'
 #     _description = "this module is for home features elmakan"

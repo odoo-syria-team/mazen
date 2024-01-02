@@ -628,7 +628,7 @@ class Partners(http.Controller):
                         "image": check_str(feature.image_url),
                         "slug": check_str(feature.slug)
                         }
-                    for feature in item.features_ids],
+                    for feature in [y for y in item.label_content_ids]+[x for x in item.features_ids]],
                     "content": [
                         {
                         "title": check_str(content.title),
@@ -677,7 +677,7 @@ class Partners(http.Controller):
         result=[]
         headers = request.httprequest.headers
         try:
-            label_obj=request.env['labelcontent.elmakan'].sudo().search([('state','=',True)],limit=1)
+            label_obj=request.env['labelcontent.elmakan'].sudo().search([],limit=1)
             check_list=lambda x:x[0] if x else {} 
             check_str=lambda x:x if x else ""
             for item in label_obj:
@@ -726,23 +726,47 @@ class Partners(http.Controller):
     @http.route('/feature/<string:slug>', auth="public",csrf=False,cors='*', website=True, methods=['GET'])
     def get_feature_by_slug(self,slug): 
         result=[]
+        data = []
+        label=False
         headers = request.httprequest.headers
         try:
-            feature_obj=request.env['feature.elmakan'].sudo().search([])
-            filtered_feature_obj = feature_obj.filtered(lambda rec: rec.slug == slug)
             check_list=lambda x:x[0] if x else {} 
             check_str=lambda x:x if x else ""
-            for item in filtered_feature_obj:
+            check_label_slider=lambda x:x.slider_ids if label else []
+            check_label_box = lambda x:x.box_ids if label else []
+            feature_obj=request.env['feature.elmakan'].sudo().search([])
+            filtered_feature_obj = feature_obj.filtered(lambda rec: rec.slug == slug)
+            label_obj=request.env['labelcontent.elmakan'].sudo().search([])
+            filtered_label_obj = label_obj.filtered(lambda rec: rec.slug == slug)
+            if filtered_feature_obj:
+                data=filtered_feature_obj
+                label=False
+            elif filtered_label_obj:
+                data=filtered_label_obj
+                label=True
+            else:
+                data=[]    
+            for item in data:
                 result.append({
                     'title':check_str(item.title),
                     'text':check_str(item.text),
+                    'link':check_str(item.link),
                     'content':[{
                         'text':check_str(content.text),
                         'title':check_str(content.title),
                         'link':check_str(content.link),
                         'image':check_str(content.image_url),
-                        
+                       
                     } for content in item.content_ids],
+                    "slider": [{
+                        'title':check_str(slider.title),
+                        'image':check_str(slider.image_url),
+                        'text':check_str(slider.text)
+                    } for slider in check_label_slider(item)],
+                    "boxes": [{
+                        'title':check_str(boxes.title),
+                        'text':check_str(boxes.text)
+                    } for boxes in check_label_box(item)]
                     
                     
                         
@@ -753,8 +777,10 @@ class Partners(http.Controller):
                 result={
                         "title": "",
                         "text": "",
-                        "content": [
-                        ]
+                        "link":"",
+                        "content": [],
+                        "slider": [],
+                        "boxes": []
                     }   
             response = json.dumps({"data":result,'message' : f' {slug} Details'}) 
             return Response(

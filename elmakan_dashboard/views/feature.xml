@@ -9,6 +9,8 @@
                 <field name="slug" />
                 <field name="title" />
                 <field name="text" />
+                <field name="image" widget="image" class="oe_avatar" />
+                <field name="image_url" invisible="1"/>
                 <!-- <field name="state" /> -->
             </tree>
         </field>
