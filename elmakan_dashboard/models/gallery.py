@@ -12,6 +12,14 @@ class GalleryAlmakaan(models.Model):
     about_id = fields.Many2one('about.elmakan' , string='')
     brand_id = fields.Many2one('brand.elmakan' , string='')
     category_id = fields.Many2one('category.elmakan' , string='')
+
+    title_popup=fields.Char("title_popup") 
+    address_popup=fields.Char("address_popup") 
+    locationMapUrl_popup=fields.Char("locationMapUrl_popup") 
+
+    phone_popup=fields.Char("phone_popup") 
+    email_popup=fields.Char("email_popup") 
+
     @api.depends('image')
     def _compute_image_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

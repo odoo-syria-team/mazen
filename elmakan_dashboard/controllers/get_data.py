@@ -415,7 +415,8 @@ class Partners(http.Controller):
                             {
                             'title': check_str(content.title),
                             'image': check_str(content.image_url),
-                            'text': check_str(content.text)
+                            'text': check_str(content.text),
+                            'logo':content.logo_url
                             }
                         for content in item.content_ids],
                     'description': [{
@@ -508,8 +509,13 @@ class Partners(http.Controller):
                             "image": gallery.image_url,
                             "text": gallery.text
                             }
-                        for gallery in item.gallery_ids],   
-                    'boxes': [{ 'title': box.title, 'text': box.text } for box in item.boxes_ids]        
+                        for gallery in item.gallery_ids], 
+                      
+                    'boxes': {
+                        "title":check_str(item.title_in_section_boxes),
+                        "boxedData":[{ 'title': box.title, 'text': box.text } for box in item.boxes_ids] 
+                    }
+                           
                 })
             if result:
                 result=result[0]
@@ -524,9 +530,10 @@ class Partners(http.Controller):
                             "gallery": [
                                 
                             ],
-                            "boxes": [
-                                
-                            ]
+                            'boxes': {
+                                "title":"",
+                                "boxedData":[] 
+                            }
                         }
                 
             response = json.dumps({"category":result,'message' : 'Category Details'}) 
@@ -570,7 +577,15 @@ class Partners(http.Controller):
                     "gallery": [
                             {
                             "image": gallery.image_url,
-                            "text": gallery.text
+                            "text": gallery.text,
+                            "popup": {
+                                'title': check_str(gallery.title_popup),
+                                'address': check_str(gallery.address_popup),
+                                'locationMapUrl': check_str(gallery.locationMapUrl_popup),
+
+                                'phone': check_str(gallery.phone_popup),
+                                'email': check_str(gallery.email_popup)
+                                }
                             }
                         for gallery in item.gallery_ids],   
                         

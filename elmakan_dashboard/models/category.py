@@ -19,7 +19,7 @@ class CategoryAlmakaan(models.Model):
     slug = fields.Char(string='Slug',default='',compute='_compute_slug')
     # video= fields.Text(string='video')
     state = fields.Boolean(string='On WebSite',default=False)
-    
+    title_in_section_boxes=fields.Char(string="title in section boxes")
     @api.depends('title')
     def _compute_slug(self):
         for record in self:
@@ -37,3 +37,14 @@ class CategoryAlmakaan(models.Model):
                 obj.image_url= base_url + '/web/image?' + 'model=category.elmakan&id=' + str(obj.id) + '&field=image'
             else:
                 obj.image_url=''
+
+
+
+    # @api.depends('video')
+    # def _compute_video_url(self):
+    #     base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+    #     for obj in self:
+    #         if obj.video:
+    #             obj.video_url= base_url + '/web/content?' + 'model=about.elmakan&id=' + str(obj.id)+'.mp4' + '&field=image'
+    #         else:
+    #             obj.video_url=''            

@@ -58,6 +58,14 @@
                                     <!-- <field name='title' /> -->
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1"/>
+                                    <!-- //// -->
+                                    <field name="title_popup"/>
+                                    <field name="address_popup"/>
+                                    
+                                    <field name="locationMapUrl_popup"/>
+                                    <field name="phone_popup"/>
+                                    <field name="email_popup"/>
+
                                 </tree>
                             </field>
 
