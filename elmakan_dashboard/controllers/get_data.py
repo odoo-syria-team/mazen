@@ -959,8 +959,9 @@ class Partners(http.Controller):
         
         try:
             if 'feature' in kw:
-                feature_id=request.env['feature.mail.elmakan'].sudo().search([('feature_id.slug','=',kw.get('feature'))])
-                print('feature_id',feature_id)
+                feature_obj=request.env['feature.mail.elmakan'].sudo().search([])
+                feature_id=feature_obj.filtered(lambda rec:rec.feature_id.slug == kw.get('feature'))
+                
                 if feature_id:
                     pass
                 else:
