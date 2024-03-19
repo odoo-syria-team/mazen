@@ -751,6 +751,7 @@ class Partners(http.Controller):
             check_label_box = lambda x:x.box_ids if label else []
             feature_obj=request.env['feature.elmakan'].sudo().search([])
             filtered_feature_obj = feature_obj.filtered(lambda rec: rec.slug == slug)
+            print('filtered_feature_obj >> ' , filtered_feature_obj)
             label_obj=request.env['labelcontent.elmakan'].sudo().search([])
             filtered_label_obj = label_obj.filtered(lambda rec: rec.slug == slug)
             if filtered_feature_obj:
@@ -948,11 +949,7 @@ class Partners(http.Controller):
         recipients = []
         subject = 'Submit Form'
         body_email = f"""
-                        name : {kw.get('name','')}
-                        email : {kw.get('email','')}
-                        phone : {kw.get('phone','')}
-                        company name : {kw.get('company_name','')}
-                        message : {kw.get('message','')}
+                        Thanks for reaching out! We'll be in touch within 24 hours.
                     """
         
 
