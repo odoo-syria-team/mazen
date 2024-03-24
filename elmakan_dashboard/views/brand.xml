@@ -25,6 +25,7 @@
 
                         <group>
                             <field name="title" />
+                            <field name="categ_id" widget='many2many_tags' />
                         </group>   
                         <group> 
                             <field name="slug"/>

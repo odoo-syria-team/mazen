@@ -9,6 +9,7 @@ class BrandAlmakaan(models.Model):
     slug = fields.Char(string='Slug',default='',compute='_compute_slug')
     image = fields.Binary('Image')
     title = fields.Text('Title')
+    categ_id = fields.Many2many('category.elmakan' , string = 'Category')
     # description_ids = fields.Many2many('description.elmakan' , string='Description')
     description_ids = fields.One2many('description.elmakan' ,'brand_id', string= 'Description')
     # content_ids = fields.Many2many('content.elmakan' ,string='Content')
