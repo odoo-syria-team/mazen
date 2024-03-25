@@ -493,6 +493,7 @@ class Partners(http.Controller):
             check_list=lambda x:x[0] if x else {} 
             check_str=lambda x:x if x else ""
             for item in filtered_category_obj:
+                brands = request.env['brand.elmakan'].sudo().search([('categ_id','in',[item.id])])
                 result.append({
                     'title': check_str(item.title),
                     'image': check_str(item.image_url),
@@ -510,6 +511,14 @@ class Partners(http.Controller):
                             "text": gallery.text
                             }
                         for gallery in item.gallery_ids], 
+                        "brands": [
+                            {
+                            "title": brand.title,
+                            "slug": brand.slug ,
+                            "image": brand.image_url ,
+                            "isTopBrand": brand.isTopBrand ,
+                            }
+                        for brand in brands], 
                       
                     'boxes': {
                         "title":check_str(item.title_in_section_boxes),
@@ -1062,6 +1071,11 @@ class Partners(http.Controller):
                             "email": check_str(ourAgents.email)
                         }
                         for ourAgents in item.ourAgents_ids],
+
+                        "contact_us" :{
+                            'Phone' : item.Phone ,
+                            'email' : item.email 
+                        }
                     
                     
                         

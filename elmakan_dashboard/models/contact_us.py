@@ -10,6 +10,8 @@ class ContactUsAlmakaan(models.Model):
     ourAgents_ids = fields.One2many('ouragents.content.us.elmakan' , 'contactus_id' , string= 'OurAgents')
     form_ids = fields.One2many('form.content.us.elmakan' , 'contactus_id' , string= 'Forms')
     state = fields.Boolean(string='On WebSite',default=False)
+    email = fields.Char('Email')
+    Phone = fields.Char('Phone')
 class LocationContentUsAlmakan(models.Model):
     _name = 'location.content.us.elmakan'
     _description = "this module is for location content us elmakan"  

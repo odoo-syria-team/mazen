@@ -21,6 +21,8 @@
                 <sheet>
                     <group>
                             <group>
+                                <field name="email"/>
+                                <field name="Phone"/>
                                 <field name="create_date"/>
                             </group>
                             <group>
