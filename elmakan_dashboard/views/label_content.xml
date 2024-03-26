@@ -46,9 +46,10 @@
                             <field name="write_date"/>
                         </group>
                         
-                        <!-- <group>
-                            <field name="state" />
-                        </group> -->
+                        <group>
+                            <field name="title_seo" />
+                            <field name="description_seo" />
+                        </group>
                     </group>
                     <notebook>
                         <page name="content" string="Contents">

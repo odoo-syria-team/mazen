@@ -17,4 +17,5 @@ class AboutAlmakaan(models.Model):
     
     state = fields.Boolean(string='On WebSite',default=False)
     # course_sections_ids =fields.One2many('section', 'course_id', string='Sections')
-
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')

@@ -12,6 +12,8 @@ class HeroSection(models.Model):
     text = fields.Html(string='Text',default='')
     title = fields.Char(string='title',default='')
     state = fields.Boolean(string='state',default=False)
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
     @api.depends('image')
     def _compute_image_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

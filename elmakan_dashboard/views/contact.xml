@@ -66,7 +66,8 @@
                             <group>
                                 <field name="icon" class="oe_avatar" />
                                 <field name="image_url" />
-
+                                <field name="title_seo" />
+                                <field name="description_seo" />
                             </group>
                         </group>
 

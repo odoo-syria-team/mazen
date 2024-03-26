@@ -17,6 +17,8 @@ class HomeAlmakaan(models.Model):
     
     features_ids = fields.Many2many('feature.elmakan',string='Features')
     label_content_ids = fields.Many2many('labelcontent.elmakan',string='Labels')
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
 # class HomeFeaturesAlmakaan(models.Model):
 #     _name = 'home.features.elmakan'
 #     _description = "this module is for home features elmakan"

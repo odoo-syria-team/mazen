@@ -10,156 +10,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 class Partners(http.Controller):
     
-    # @http.route('/data/brands', auth="public",csrf=False, website=True, methods=['GET'])
-    # def get_all_brands(self,**kw): 
-    #     result=[]
-    #     headers = request.httprequest.headers 
-
-    #     if 'Accept-Language' in headers and headers["Accept-Language"] == "ar":
-    #         language = "ar"
-    #     else:
-    #         language = 'en'
-    #     brands = request.env['brand.elmakan'].sudo().search([])
-    #     if brands:    
-    #         try:
-            
-                
-    #             check_image=lambda image:image if image else ''
-    #             for item in brands:
-    #                 result.append({
-    #                     'id':item.id,
-    #                     'title':item.title,              
-    #                     'image':check_image(item.image_url),
-                        
-    #                 })
-            
-            
-            
-    #             response = json.dumps({"data":result,'message' : 'All Brands'}) 
-    #             return Response(
-    #                 response, status=200,
-    #                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #         except Exception as e:
-    #             response = json.dumps({'data':[],'message':str(e)}) 
-    #             return Response(
-    #                 response, status=500,
-    #                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #     else:
-    #         if language=='en':
-    #             message=''
-    #         else:
-    #             message=""
-    #         response = json.dumps({"data":[],'message':message}) 
-    #         return Response(
-    #             response, status=400,
-    #             headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-
-    # @http.route('/data/brands/<int:brand_id>', auth="public",csrf=False, website=True, methods=['GET'])
-    # def get_brand_by_id(self,brand_id=None): 
-    #     result=[]
-    #     headers = request.httprequest.headers
-
-    #     if 'Accept-Language' in headers and headers["Accept-Language"] == "ar":
-    #         language = "ar"
-    #     else:
-    #         language = 'en'
-    #     if brand_id:
-    #         categories = request.env['brand.elmakan'].sudo().search([('id','=',brand_id)])
-    #         if categories:    
-    #             try:
-                
-                    
-    #                 check_image=lambda image:image if image else ''
-    #                 for item in categories:
-    #                     content_obj = request.env['content.brand.elmakan'].sudo().search([('content_id' , '=' ,item.id)])
-    #                     gallery_obj = request.env['gallery.brand.elmakan'].sudo().search([('gallery_id' , '=' ,item.id)])
-    #                     description_obj = request.env['description.brand.elmakan'].sudo().search([('description_id' , '=' ,item.id)])
-    #                     result.append({
-    #                         'id':item.id,    
-    #                         'title':item.title,              
-    #                         'image':check_image(item.image_url),
-    #                         'content':[{'id':content.id,'text':content.text,'title':content.title,'image_url':content.image_url} for content in content_obj],
-    #                         'gallery':[{'id':gallery.id,'text':gallery.text,'image_url':gallery.image_url} for gallery in gallery_obj],
-    #                         'description':[{'id':description.id,'text':description.text,'description':description.description,'title':description.title} for description in description_obj],
-                            
-                            
-    #                     })
-                
-                
-                
-    #                 response = json.dumps({"data":result,'message' : 'All categories'}) 
-    #                 return Response(
-    #                     response, status=200,
-    #                     headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #             except Exception as e:
-    #                 response = json.dumps({'data':[],'message':str(e)}) 
-    #                 return Response(
-    #                     response, status=500,
-    #                     headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #         else:
-    #             if language=='en':
-    #                 message=''
-    #             else:
-    #                 message=""
-    #             response = json.dumps({"data":[],'message':message}) 
-    #             return Response(
-    #                 response, status=400,
-    #                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)]) 
-    #     else:
-    #         if language=='en':
-    #             message=''
-    #         else:
-    #             message=""
-    #         response = json.dumps({"data":[],'message':message}) 
-    #         return Response(
-    #             response, status=400,
-    #             headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-
-    # @http.route('/data/categories', auth="public",csrf=False, website=True, methods=['GET'])
-    # def get_all_categories(self,**kw): 
-    #     result=[]
-    #     headers = request.httprequest.headers
-    #     if 'Accept-Language' in headers and headers["Accept-Language"] == "ar":
-    #         language = "ar"
-    #     else:
-    #         language = 'en'
-    #     categories = request.env['category.elmakan'].sudo().search([])
-    #     if categories:    
-    #         try:
-            
-                
-    #             check_image=lambda image:image if image else ''
-    #             for item in categories:
-    #                 result.append({
-    #                     'id':item.id,
-    #                     'text':item.text,    
-    #                     'title':item.title,              
-    #                     'image_url':check_image(item.image_ids.image_url),
-                        
-    #                 })
-            
-            
-            
-    #             response = json.dumps({"data":result,'message' : 'All categyre'}) 
-    #             return Response(
-    #                 response, status=200,
-    #                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #         except Exception as e:
-    #             response = json.dumps({'data':[],'message':str(e)}) 
-    #             return Response(
-    #                 response, status=500,
-    #                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #     else:
-    #         if language=='en':
-    #             message=''
-    #         else:
-    #             message=""
-    #         response = json.dumps({"data":[],'message':message}) 
-    #         return Response(
-    #             response, status=400,
-    #             headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-
-
     @http.route('/data/categories/<int:category_id>', auth="public",csrf=False, cors='*',website=True, methods=['GET'])
     def get_category_by_id(self,category_id=None): 
         result=[]
@@ -184,7 +34,9 @@ class Partners(http.Controller):
                         result.append({
                             'id':item.id,
                             'text':item.text,    
-                            'title':item.title,              
+                            'title':item.title,             
+                            'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                             'image_url':check_image(item.image_ids.image_url),
                             'content':[{'id':content.id,'text':content.text,'title':content.title,'image_url':content.image_url} for content in content_obj],
                             'gallery':[{'id':gallery.id,'text':gallery.text,'image_url':gallery.image_url} for gallery in gallery_obj],
@@ -268,6 +120,8 @@ class Partners(http.Controller):
                         'text':item.text,
                         'link':item.link ,
                         'icon':item.image_url,
+                        'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     })
             
             
@@ -296,7 +150,10 @@ class Partners(http.Controller):
                     result.append({
                         'id':item.id,
                         'title':item.title,
-                        'image_url':item.image_url                
+                        'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
+                        'image_url':item.image_url   
+                                     
                     })
             
             
@@ -311,39 +168,7 @@ class Partners(http.Controller):
                 response, status=500,
                 headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
 
-    # @http.route('/data/aboutUS', auth="public",csrf=False, website=True, methods=['GET'])
-    # def get_aboutUS(self):
-    #     result=[]
-    #     headers = request.httprequest.headers 
-    #     try:
-    #         partner_obj=request.env['about.elmakan'].sudo().search([],limit=1)
-    #         if partner_obj:
-    #             #get_title=lambda x:x.containt_ar if language=='ar' else x.containt_en
-    #             #date=lambda x:str(x) if x!=False else "0000-00-00"
-    #             check_str=lambda x:x if x else ''
-    #             check_image=lambda image:image if image else ''
-    #             for item in partner_obj:
-    #                 result.append({
-    #                     'id':item.id,
-    #                     'text':check_str(item.text),
-    #                     'video':check_str(item.video)                
-    #                 })
-            
-            
-    #         if result:
-    #             result=result[0]
-    #         else:
-    #             result={}
-    #         response = json.dumps({"data":result,'message' : 'About US'}) 
-    #         return Response(
-    #             response, status=200,
-    #             headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-    #     except Exception as e:
-    #         response = json.dumps({'data':[],'message':str(e)}) 
-    #         return Response(
-    #             response, status=500,
-    #             headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
-
+    
     @http.route('/Brand', auth="public",csrf=False, cors='*',website=True, methods=['GET'])
     def get_all_brands(self): 
         result=[]
@@ -361,13 +186,15 @@ class Partners(http.Controller):
                             'image': check_str(slider.image_url)
                         }
                         for slider in slider_obj],
+                        
                     'brands': [
                         {
                             'title': check_str(brand.title),
                             'slug': check_str(brand.slug),
                             'image': check_str(brand.image_url),
-                            'isTopBrand': brand.isTopBrand
-                            
+                            'isTopBrand': brand.isTopBrand,
+                            'meta' : {'title_seo' :brand.title_seo,
+                            'description_seo' : brand.description_seo} ,
                         }
                         for brand in brand_obj]    
                 }
@@ -411,6 +238,8 @@ class Partners(http.Controller):
                     'image': check_str(item.image_url),
                     'title': check_str(item.title),
                     'isTopBrand': item.isTopBrand,
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'content': [
                             {
                             'title': check_str(content.title),
@@ -465,6 +294,8 @@ class Partners(http.Controller):
             check_str=lambda x:x if x else ""
             for item in category_obj:
                 result.append({
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'image': check_str(item.image_url),
                     'title': check_str(item.title),
                     'text': check_str(item.text),
@@ -495,9 +326,12 @@ class Partners(http.Controller):
             for item in filtered_category_obj:
                 brands = request.env['brand.elmakan'].sudo().search([('categ_id','in',[item.id])])
                 result.append({
+                    
                     'title': check_str(item.title),
                     'image': check_str(item.image_url),
                     'text': check_str(item.text),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'content': [
                             {
                             'title': check_str(content.title),
@@ -569,6 +403,8 @@ class Partners(http.Controller):
                 result.append({
                     'text':check_str(item.text),
                     'video':check_str(item.video_url),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     "hero": [
                         {
                             'image':check_str(hero.image_url),
@@ -605,6 +441,8 @@ class Partners(http.Controller):
                 result={
                     "text": "",
                     "video": "",
+                    'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                     "hero": [
                         
                     ],
@@ -637,6 +475,8 @@ class Partners(http.Controller):
             check_str=lambda x:x if x else ""
             for item in home_obj:
                 result.append({
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     "hero": check_list([{
                         "title": check_str(hero.title),
                         "image": check_str(hero.image_url)
@@ -667,6 +507,8 @@ class Partners(http.Controller):
                 result=result[0]
             else:
                 result={
+                    'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                     "hero": {
                         "title": "",
                         "image": ""
@@ -708,6 +550,8 @@ class Partners(http.Controller):
                 result.append({
                     'title':check_str(item.title),
                     'text':check_str(item.text),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'content':[{
                         'title':check_str(content.title),
                         'image':check_str(content.image_url),
@@ -732,6 +576,8 @@ class Partners(http.Controller):
                 result={
                         "title": "",
                         "text": "",
+                        'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -776,6 +622,8 @@ class Partners(http.Controller):
                     'title':check_str(item.title),
                     'text':check_str(item.text),
                     'link':check_str(item.link),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'content':[{
                         'text':check_str(content.text),
                         'title':check_str(content.title),
@@ -803,6 +651,8 @@ class Partners(http.Controller):
                         "title": "",
                         "text": "",
                         "link":"",
+                        'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -831,6 +681,8 @@ class Partners(http.Controller):
                 result.append({
                     'title':check_str(item.title),
                     'text':check_str(item.text),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'companies':[{
                         'key':check_str(companies.key),
                         'value':check_str(companies.value),
@@ -846,6 +698,8 @@ class Partners(http.Controller):
                 result={
                     "title": "",
                     "text": "",
+                    'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                     "companies": [
                         
                     ]
@@ -1044,6 +898,8 @@ class Partners(http.Controller):
             check_str=lambda x:x if x else ""
             for item in client_obj:
                 result.append({
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     "location": [
                         {
                             "region":check_str(location.region),
@@ -1084,6 +940,8 @@ class Partners(http.Controller):
                 result=result[0]
             else:
                 result={
+                    'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                     "location": [
                         
                     ],
@@ -1117,6 +975,8 @@ class Partners(http.Controller):
                     'title': check_str(item.title),
                     'content':check_str(item.content),
                     'slug': check_str(item.slug),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                     'tag': check_str(item.tag)
                 })
              
@@ -1145,6 +1005,8 @@ class Partners(http.Controller):
                     'image': check_str(item.image_url),
                     'title': check_str(item.title),
                     'content':check_str(item.content),
+                    'meta' : {'title_seo' :item.title_seo,
+                            'description_seo' : item.description_seo} ,
                 })
             if result:
                 result=result[0]
@@ -1152,6 +1014,8 @@ class Partners(http.Controller):
                 result={
                             "image": "",
                             "title": "",
+                            'meta' : {'title_seo' :'',
+                            'description_seo' : ''} ,
                             "content": ""
                         }   
             response = json.dumps({"blogDetails":result,'message' : 'Blog Details'}) 

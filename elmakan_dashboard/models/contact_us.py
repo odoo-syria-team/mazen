@@ -12,6 +12,8 @@ class ContactUsAlmakaan(models.Model):
     state = fields.Boolean(string='On WebSite',default=False)
     email = fields.Char('Email')
     Phone = fields.Char('Phone')
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
 class LocationContentUsAlmakan(models.Model):
     _name = 'location.content.us.elmakan'
     _description = "this module is for location content us elmakan"  

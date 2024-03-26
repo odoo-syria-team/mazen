@@ -35,6 +35,8 @@
                         </group>
                         <group>
                             <field name="state" />
+                            <field name="title_seo" />
+                            <field name="description_seo" />
                         </group>
                     </group>
                     <notebook>

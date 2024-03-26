@@ -19,6 +19,8 @@ class GalleryAlmakaan(models.Model):
 
     phone_popup=fields.Char("phone_popup") 
     email_popup=fields.Char("email_popup") 
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
 
     @api.depends('image')
     def _compute_image_url(self):

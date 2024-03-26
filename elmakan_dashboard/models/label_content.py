@@ -12,6 +12,8 @@ class LabelContentAlmakaan(models.Model):
     link = fields.Char(string='Link',default='')
     image = fields.Binary(string='Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
     @api.depends('image')
     def _compute_image_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

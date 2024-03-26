@@ -8,7 +8,7 @@
             <tree>
                 <field name="text" />
                 <field name="state" />
-                
+
             </tree>
         </field>
     </record>
@@ -26,17 +26,21 @@
                         </group>
 
                         <group>
-                            <field name="video_url"/>
+                            <field name="video_url" />
                         </group>
-                        
+
                         <group>
-                            <field name="create_date"/>
+                            <field name="create_date" />
                         </group>
                         <group>
-                            <field name="write_date"/>
+                            <field name="write_date" />
                         </group>
                         <group>
                             <field name="state" />
+                            <field name="title_seo" />
+                            <field name="description_seo" />
+
+
                         </group>
                     </group>
                     <notebook>
@@ -46,7 +50,7 @@
                                     <field name="title" />
                                     <field name='text' />
                                     <field name="image" widget="image" class="oe_avatar" />
-                                    <field name="image_url" invisible="1"/>
+                                    <field name="image_url" invisible="1" />
                                 </tree>
                             </field>
 
@@ -54,17 +58,17 @@
                         <page name="gallery" string="Gallery">
                             <field name="gallery_ids">
                                 <tree editable="bottom">
-                                    <field name='text'/>
+                                    <field name='text' />
                                     <!-- <field name='title' /> -->
                                     <field name="image" widget="image" class="oe_avatar" />
-                                    <field name="image_url" invisible="1"/>
+                                    <field name="image_url" invisible="1" />
                                     <!-- //// -->
-                                    <field name="title_popup"/>
-                                    <field name="address_popup"/>
-                                    
-                                    <field name="locationMapUrl_popup"/>
-                                    <field name="phone_popup"/>
-                                    <field name="email_popup"/>
+                                    <field name="title_popup" />
+                                    <field name="address_popup" />
+
+                                    <field name="locationMapUrl_popup" />
+                                    <field name="phone_popup" />
+                                    <field name="email_popup" />
 
                                 </tree>
                             </field>
@@ -72,15 +76,15 @@
                         </page>
                         <page name="heros" string="Heros">
                             <field name="hero_ids">
-                            <tree editable="bottom">
-                                
-                                <field name='title' />
-                                <field name='text' />
-                                <field name="image" widget="image" class="oe_avatar" />
-                                <field name="image_url" invisible="1"/>
-                            </tree>
+                                <tree editable="bottom">
+
+                                    <field name='title' />
+                                    <field name='text' />
+                                    <field name="image" widget="image" class="oe_avatar" />
+                                    <field name="image_url" invisible="1" />
+                                </tree>
                             </field>
-                            
+
                         </page>
                     </notebook>
                 </sheet>
@@ -95,7 +99,7 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Create your first about  Record! </p>
+            <p class="o_view_nocontent_smiling_face">Create your first about Record! </p>
         </field>
     </record>
 
@@ -104,6 +108,6 @@
         parent='almakaan_root'
         action="about_action_window_elmakan"
         sequence="2" />
-    
+
 
 </odoo>

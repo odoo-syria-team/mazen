@@ -9,3 +9,5 @@ class DescriptionAlmakaan(models.Model):
     text = fields.Text('Text')
     
     brand_id = fields.Many2one('brand.elmakan' , string='')
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')

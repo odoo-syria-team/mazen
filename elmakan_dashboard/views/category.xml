@@ -46,6 +46,8 @@
                         </group> 
                         <group>
                             <field name="title_in_section_boxes"/>
+                            <field name="title_seo" />
+                            <field name="description_seo" />
                         </group>
                     </group>
                     <notebook>

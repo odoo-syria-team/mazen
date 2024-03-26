@@ -10,6 +10,8 @@ class ClientAlmakaan(models.Model):
     text = fields.Text('Text',default='')
     company_ids = fields.One2many('client.company.elmakan' , 'client_id' , string= 'Companies')
     state = fields.Boolean(string='On WebSite',default=False)
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
     
 class ClientCompanyAlmakan(models.Model):
     _name = 'client.company.elmakan'
@@ -18,3 +20,5 @@ class ClientCompanyAlmakan(models.Model):
     client_id = fields.Many2one('client.elmakan')
     key = fields.Char('Company Name',default='')
     value =  fields.Char('Category',default='')
+    title_seo = fields.Char('Title SEO')
+    description_seo = fields.Char('descreption SEO')
