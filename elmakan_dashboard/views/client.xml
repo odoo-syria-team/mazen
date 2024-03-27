@@ -38,7 +38,6 @@
                             <field name="title_seo" />
                             <field name="description_seo" />
                             <field name="keywords_seo" />
-                            <field name="image_alt" />
                         </group> 
                     </group>
                     <notebook>

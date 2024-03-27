@@ -16,10 +16,11 @@ class FeatureAlmakaan(models.Model):
     link = fields.Char(string='link',default='')
     image = fields.Binary(string='Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
+    image_alt = fields.Char('Image alt SEO')
     title_seo = fields.Char('Title SEO')
     description_seo = fields.Char('description SEO')
     keywords_seo = fields.Char('Keywords SEO')
-    image_alt = fields.Char('Image alt SEO')
+    
     @api.depends('image')
     def _compute_image_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')

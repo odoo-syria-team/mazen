@@ -51,6 +51,7 @@ class BrandSliderAlmakaan(models.Model):
     title = fields.Text(string='Title',default='')
     image = fields.Binary('Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
+    image_alt = fields.Char('Image alt SEO')
     state = fields.Boolean(string='On WebSite',default=False)
 
     slider_id = fields.Many2one('labelcontent.elmakan' , string='')

@@ -15,7 +15,6 @@ class ContactUsAlmakaan(models.Model):
     title_seo = fields.Char('Title SEO')
     description_seo = fields.Char('description SEO')
     keywords_seo = fields.Char('Keywords SEO')
-    image_alt = fields.Char('Image alt SEO')
 class LocationContentUsAlmakan(models.Model):
     _name = 'location.content.us.elmakan'
     _description = "this module is for location content us elmakan"  

@@ -9,6 +9,7 @@ class BlogElmakan(models.Model):
     _rec_name ='slug'
     image = fields.Image(string='Image')
     image_url= fields.Char(string='Image url',compute='_compute_image_url')
+    image_alt = fields.Char('Image alt SEO')
     title = fields.Char(string='Title', default='')
     content =  fields.Html(string='Content',default='')
     slug = fields.Char(string='Slug',default='',compute='_compute_slug')
@@ -17,7 +18,6 @@ class BlogElmakan(models.Model):
     title_seo = fields.Char('Title SEO')
     description_seo = fields.Char('description SEO')
     keywords_seo = fields.Char('Keywords SEO')
-    image_alt = fields.Char('Image alt SEO')
     @api.depends('title')
     def _compute_slug(self):
         for record in self:

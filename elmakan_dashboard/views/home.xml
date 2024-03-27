@@ -38,7 +38,6 @@
                             <field name="title_seo" />
                             <field name="description_seo" />
                             <field name="keywords_seo" />
-                            <field name="image_alt" />
                         </group>
                     </group>
                     <notebook>
@@ -50,6 +49,7 @@
                                     <field name="slug" />
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1"/>
+                                    <field name="image_alt" />
                                 </tree>
                             </field>
 
@@ -73,6 +73,7 @@
                                     <field name ="link"/>
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1"/>
+                                    <field name="image_alt" />
                                 </tree>
                             </field>
 

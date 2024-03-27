@@ -8,7 +8,7 @@ class GalleryAlmakaan(models.Model):
     text=fields.Text(string='Text')
     image = fields.Binary(string='Image')
     image_url = fields.Char("image url", compute='_compute_image_url')
-
+    image_alt = fields.Char('Image alt SEO')
     about_id = fields.Many2one('about.elmakan' , string='')
     brand_id = fields.Many2one('brand.elmakan' , string='')
     category_id = fields.Many2one('category.elmakan' , string='')
@@ -22,7 +22,6 @@ class GalleryAlmakaan(models.Model):
     title_seo = fields.Char('Title SEO')
     description_seo = fields.Char('description SEO')
     keywords_seo = fields.Char('Keywords SEO')
-    image_alt = fields.Char('Image alt SEO')
 
     @api.depends('image')
     def _compute_image_url(self):

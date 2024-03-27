@@ -40,7 +40,7 @@
                             <field name="title_seo" />
                             <field name="description_seo" />
                             <field name="keywords_seo" />
-                            <field name="image_alt" />
+                            
 
                         </group>
                     </group>
@@ -52,6 +52,7 @@
                                     <field name='text' />
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1" />
+                                    <field name="image_alt" />
                                 </tree>
                             </field>
 
@@ -63,7 +64,7 @@
                                     <!-- <field name='title' /> -->
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1" />
-                                    <!-- //// -->
+                                    <field name="image_alt" />
                                     <field name="title_popup" />
                                     <field name="address_popup" />
 
@@ -83,6 +84,7 @@
                                     <field name='text' />
                                     <field name="image" widget="image" class="oe_avatar" />
                                     <field name="image_url" invisible="1" />
+                                    <field name="image_alt" />
                                 </tree>
                             </field>
 

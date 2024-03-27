@@ -20,7 +20,6 @@ class HomeAlmakaan(models.Model):
     title_seo = fields.Char('Title SEO')
     description_seo = fields.Char('description SEO')
     keywords_seo = fields.Char('Keywords SEO')
-    image_alt = fields.Char('Image alt SEO')
 # class HomeFeaturesAlmakaan(models.Model):
 #     _name = 'home.features.elmakan'
 #     _description = "this module is for home features elmakan"

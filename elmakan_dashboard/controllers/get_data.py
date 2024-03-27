@@ -38,7 +38,7 @@ class Partners(http.Controller):
                             'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt
+                            'image_alt' : item.image_alt,
                             } ,
                             'image_url':check_image(item.image_ids.image_url),
                             'content':[{'id':content.id,'text':content.text,'title':content.title,'image_url':content.image_url} for content in content_obj],
@@ -126,7 +126,7 @@ class Partners(http.Controller):
                         'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                           } ,
                             
                     })
             
@@ -159,7 +159,7 @@ class Partners(http.Controller):
                         'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                         'image_url':item.image_url   
                                      
                     })
@@ -200,11 +200,12 @@ class Partners(http.Controller):
                             'title': check_str(brand.title),
                             'slug': check_str(brand.slug),
                             'image': check_str(brand.image_url),
+                            'image_alt' : brand.image_alt,
                             'isTopBrand': brand.isTopBrand,
                             'meta' : {'title_seo' :brand.title_seo,
                             'description_seo' : brand.description_seo,
                             'keywords_seo' : brand.keywords_seo,
-                            'image_alt' : brand.image_alt} ,
+                            } ,
                         }
                         for brand in brand_obj]    
                 }
@@ -251,11 +252,12 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'content': [
                             {
                             'title': check_str(content.title),
                             'image': check_str(content.image_url),
+                            'image_alt' : content.image_alt ,
                             'text': check_str(content.text),
                             'logo':content.logo_url
                             }
@@ -268,6 +270,7 @@ class Partners(http.Controller):
                     "gallery": [
                             {
                             "image": gallery.image_url,
+                            'image_alt' : gallery.image_alt,
                             "text": gallery.text
                             }
                         for gallery in item.gallery_ids]      
@@ -309,8 +312,9 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'image': check_str(item.image_url),
+                    'image_alt' : item.image_alt,
                     'title': check_str(item.title),
                     'text': check_str(item.text),
                     'slug': check_str(item.slug)
@@ -343,21 +347,24 @@ class Partners(http.Controller):
                     
                     'title': check_str(item.title),
                     'image': check_str(item.image_url),
+                    'image_alt' : item.image_alt,
                     'text': check_str(item.text),
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'content': [
                             {
                             'title': check_str(content.title),
                             'image': check_str(content.image_url),
+                            'image_alt' : content.image_alt,
                             'text': check_str(content.text)
                             }
                         for content in item.content_ids], 
                     "gallery": [
                             {
                             "image": gallery.image_url,
+                            'image_alt' : gallery.image_alt,
                             "text": gallery.text
                             }
                         for gallery in item.gallery_ids], 
@@ -366,6 +373,7 @@ class Partners(http.Controller):
                             "title": brand.title,
                             "slug": brand.slug ,
                             "image": brand.image_url ,
+                            'image_alt' : brand.image_alt,
                             "isTopBrand": brand.isTopBrand ,
                             }
                         for brand in brands], 
@@ -422,10 +430,11 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     "hero": [
                         {
                             'image':check_str(hero.image_url),
+                            'image_alt' : hero.image_alt,
                             'title':check_str(hero.title),
                             'text': check_str(hero.text)
                         }
@@ -433,6 +442,7 @@ class Partners(http.Controller):
                     'content': [
                             {
                             'image': check_str(content.image_url),
+                            'image_alt' : content.image_alt,
                             'title': check_str(content.title),
                             'text': check_str(content.text)
                             }
@@ -440,6 +450,7 @@ class Partners(http.Controller):
                     "gallery": [
                             {
                             "image": gallery.image_url,
+                            'image_alt' : gallery.image_alt,
                             "text": gallery.text,
                             "popup": {
                                 'title': check_str(gallery.title_popup),
@@ -461,8 +472,7 @@ class Partners(http.Controller):
                     "video": "",
                     'meta' : {'title_seo' :'',
                             'description_seo' : '',
-                            'keywords_seo' : '',
-                            'image_alt' : ''} ,
+                            'keywords_seo' : ''} ,
                     "hero": [
                         
                     ],
@@ -498,10 +508,11 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     "hero": check_list([{
                         "title": check_str(hero.title),
-                        "image": check_str(hero.image_url)
+                        "image": check_str(hero.image_url),
+                        'image_alt' : hero.image_alt,
                     } for hero in item.hero_id]),
                     "about": check_list([{
                         "text": check_str(about.text),
@@ -512,6 +523,7 @@ class Partners(http.Controller):
                         "title": check_str(feature.title),
                         "link":check_str(feature.link),
                         "image": check_str(feature.image_url),
+                        'image_alt' : feature.image_alt,
                         "slug": check_str(feature.slug)
                         }
                     for feature in [y for y in item.label_content_ids]+[x for x in item.features_ids]],
@@ -532,10 +544,11 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :'',
                             'description_seo' : '',
                             'keywords_seo' : '',
-                            'image_alt' : ''} ,
+                            } ,
                     "hero": {
                         "title": "",
-                        "image": ""
+                        "image": "",
+                        'image_alt' : ''
                     },
                     "about": {
                         "text": "",
@@ -577,15 +590,17 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'content':[{
                         'title':check_str(content.title),
                         'image':check_str(content.image_url),
+                        'image_alt' : content.image_alt,
                         'text':check_str(content.text)
                     } for content in item.content_ids],
                     'slider':[{
                         'title':check_str(slider.title),
                         'image':check_str(slider.image_url),
+                        'image_alt' : slider.image_alt,
                         'text':check_str(slider.text)
                     } for slider in item.slider_ids],
                     'boxes':[{
@@ -605,7 +620,7 @@ class Partners(http.Controller):
                         'meta' : {'title_seo' :'',
                             'description_seo' : '',
                             'keywords_seo' : '',
-                            'image_alt' : ''} ,
+                            } ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -653,17 +668,19 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'content':[{
                         'text':check_str(content.text),
                         'title':check_str(content.title),
                         'link':check_str(content.link),
                         'image':check_str(content.image_url),
+                        'image_alt' : content.image_alt
                        
                     } for content in item.content_ids],
                     "slider": [{
                         'title':check_str(slider.title),
                         'image':check_str(slider.image_url),
+                        'image_alt' : slider.image_alt,
                         'text':check_str(slider.text)
                     } for slider in check_label_slider(item)],
                     "boxes": [{
@@ -684,7 +701,7 @@ class Partners(http.Controller):
                         'meta' : {'title_seo' :'',
                             'description_seo' : '',
                             'keywords_seo' : '',
-                            'image_alt' : ''} ,
+                           } ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -716,7 +733,7 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'companies':[{
                         'key':check_str(companies.key),
                         'value':check_str(companies.value),
@@ -935,7 +952,7 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     "location": [
                         {
                             "region":check_str(location.region),
@@ -979,7 +996,7 @@ class Partners(http.Controller):
                     'meta' : {'title_seo' :'',
                             'description_seo' : '',
                             'keywords_seo' : '',
-                            'image_alt' : ''} ,
+                            } ,
                     "location": [
                         
                     ],
@@ -1010,13 +1027,14 @@ class Partners(http.Controller):
             for item in blog_obj:
                 result.append({
                     'image': check_str(item.image_url),
+                    'image_alt' : item.image_alt,
                     'title': check_str(item.title),
                     'content':check_str(item.content),
                     'slug': check_str(item.slug),
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                     'tag': check_str(item.tag)
                 })
              
@@ -1043,12 +1061,13 @@ class Partners(http.Controller):
             for item in filtered_blog_obj:
                 result.append({
                     'image': check_str(item.image_url),
+                    'image_alt' : item.image_alt,
                     'title': check_str(item.title),
                     'content':check_str(item.content),
                     'meta' : {'title_seo' :item.title_seo,
                             'description_seo' : item.description_seo,
                             'keywords_seo' : item.keywords_seo,
-                            'image_alt' : item.image_alt} ,
+                            } ,
                 })
             if result:
                 result=result[0]
