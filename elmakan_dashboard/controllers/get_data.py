@@ -36,7 +36,10 @@ class Partners(http.Controller):
                             'text':item.text,    
                             'title':item.title,             
                             'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt
+                            } ,
                             'image_url':check_image(item.image_ids.image_url),
                             'content':[{'id':content.id,'text':content.text,'title':content.title,'image_url':content.image_url} for content in content_obj],
                             'gallery':[{'id':gallery.id,'text':gallery.text,'image_url':gallery.image_url} for gallery in gallery_obj],
@@ -121,7 +124,10 @@ class Partners(http.Controller):
                         'link':item.link ,
                         'icon':item.image_url,
                         'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
+                            
                     })
             
             
@@ -151,7 +157,9 @@ class Partners(http.Controller):
                         'id':item.id,
                         'title':item.title,
                         'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                         'image_url':item.image_url   
                                      
                     })
@@ -194,7 +202,9 @@ class Partners(http.Controller):
                             'image': check_str(brand.image_url),
                             'isTopBrand': brand.isTopBrand,
                             'meta' : {'title_seo' :brand.title_seo,
-                            'description_seo' : brand.description_seo} ,
+                            'description_seo' : brand.description_seo,
+                            'keywords_seo' : brand.keywords_seo,
+                            'image_alt' : brand.image_alt} ,
                         }
                         for brand in brand_obj]    
                 }
@@ -239,7 +249,9 @@ class Partners(http.Controller):
                     'title': check_str(item.title),
                     'isTopBrand': item.isTopBrand,
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'content': [
                             {
                             'title': check_str(content.title),
@@ -295,7 +307,9 @@ class Partners(http.Controller):
             for item in category_obj:
                 result.append({
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'image': check_str(item.image_url),
                     'title': check_str(item.title),
                     'text': check_str(item.text),
@@ -331,7 +345,9 @@ class Partners(http.Controller):
                     'image': check_str(item.image_url),
                     'text': check_str(item.text),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'content': [
                             {
                             'title': check_str(content.title),
@@ -404,7 +420,9 @@ class Partners(http.Controller):
                     'text':check_str(item.text),
                     'video':check_str(item.video_url),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     "hero": [
                         {
                             'image':check_str(hero.image_url),
@@ -442,7 +460,9 @@ class Partners(http.Controller):
                     "text": "",
                     "video": "",
                     'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                     "hero": [
                         
                     ],
@@ -476,7 +496,9 @@ class Partners(http.Controller):
             for item in home_obj:
                 result.append({
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     "hero": check_list([{
                         "title": check_str(hero.title),
                         "image": check_str(hero.image_url)
@@ -508,7 +530,9 @@ class Partners(http.Controller):
             else:
                 result={
                     'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                     "hero": {
                         "title": "",
                         "image": ""
@@ -551,7 +575,9 @@ class Partners(http.Controller):
                     'title':check_str(item.title),
                     'text':check_str(item.text),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'content':[{
                         'title':check_str(content.title),
                         'image':check_str(content.image_url),
@@ -577,7 +603,9 @@ class Partners(http.Controller):
                         "title": "",
                         "text": "",
                         'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -623,7 +651,9 @@ class Partners(http.Controller):
                     'text':check_str(item.text),
                     'link':check_str(item.link),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'content':[{
                         'text':check_str(content.text),
                         'title':check_str(content.title),
@@ -652,7 +682,9 @@ class Partners(http.Controller):
                         "text": "",
                         "link":"",
                         'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                         "content": [],
                         "slider": [],
                         "boxes": []
@@ -682,7 +714,9 @@ class Partners(http.Controller):
                     'title':check_str(item.title),
                     'text':check_str(item.text),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'companies':[{
                         'key':check_str(companies.key),
                         'value':check_str(companies.value),
@@ -899,7 +933,9 @@ class Partners(http.Controller):
             for item in client_obj:
                 result.append({
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     "location": [
                         {
                             "region":check_str(location.region),
@@ -941,7 +977,9 @@ class Partners(http.Controller):
             else:
                 result={
                     'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                     "location": [
                         
                     ],
@@ -976,7 +1014,9 @@ class Partners(http.Controller):
                     'content':check_str(item.content),
                     'slug': check_str(item.slug),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                     'tag': check_str(item.tag)
                 })
              
@@ -1006,7 +1046,9 @@ class Partners(http.Controller):
                     'title': check_str(item.title),
                     'content':check_str(item.content),
                     'meta' : {'title_seo' :item.title_seo,
-                            'description_seo' : item.description_seo} ,
+                            'description_seo' : item.description_seo,
+                            'keywords_seo' : item.keywords_seo,
+                            'image_alt' : item.image_alt} ,
                 })
             if result:
                 result=result[0]
@@ -1015,7 +1057,9 @@ class Partners(http.Controller):
                             "image": "",
                             "title": "",
                             'meta' : {'title_seo' :'',
-                            'description_seo' : ''} ,
+                            'description_seo' : '',
+                            'keywords_seo' : '',
+                            'image_alt' : ''} ,
                             "content": ""
                         }   
             response = json.dumps({"blogDetails":result,'message' : 'Blog Details'}) 

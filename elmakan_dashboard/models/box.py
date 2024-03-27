@@ -11,4 +11,6 @@ class BoxesAlmakaan(models.Model):
     category_id = fields.Many2one('category.elmakan' , string='')
     labelcontent_id = fields.Many2one('labelcontent.elmakan' , string='')
     title_seo = fields.Char('Title SEO')
-    description_seo = fields.Char('descreption SEO')
+    description_seo = fields.Char('description SEO')
+    keywords_seo = fields.Char('Keywords SEO')
+    image_alt = fields.Char('Image alt SEO')

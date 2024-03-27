@@ -11,7 +11,9 @@ class ClientAlmakaan(models.Model):
     company_ids = fields.One2many('client.company.elmakan' , 'client_id' , string= 'Companies')
     state = fields.Boolean(string='On WebSite',default=False)
     title_seo = fields.Char('Title SEO')
-    description_seo = fields.Char('descreption SEO')
+    description_seo = fields.Char('description SEO')
+    keywords_seo = fields.Char('Keywords SEO')
+    image_alt = fields.Char('Image alt SEO')
     
 class ClientCompanyAlmakan(models.Model):
     _name = 'client.company.elmakan'

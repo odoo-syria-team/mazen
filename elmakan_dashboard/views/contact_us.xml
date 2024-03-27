@@ -20,20 +20,22 @@
 
                 <sheet>
                     <group>
-                            <group>
-                                <field name="email"/>
-                                <field name="Phone"/>
-                                <field name="create_date"/>
-                            </group>
-                            <group>
-                                <field name="write_date"/>
-                            </group>
-                            <group>
-                                <field name="state" />
-                                <field name="title_seo" />
+                        <group>
+                            <field name="email" />
+                            <field name="Phone" />
+                            <field name="create_date" />
+                        </group>
+                        <group>
+                            <field name="write_date" />
+                        </group>
+                        <group>
+                            <field name="state" />
+                            <field name="title_seo" />
                             <field name="description_seo" />
-                            </group> 
-                    </group>        
+                            <field name="keywords_seo" />
+                            <field name="image_alt" />
+                        </group>
+                    </group>
                     <notebook>
                         <page name="locations" string="Locations">
                             <field name="location_ids">
@@ -46,7 +48,7 @@
                                     <field name="poBoxNumber" />
                                     <field name="poBoxLocation" />
                                     <field name="email" />
-                                    
+
                                 </tree>
                             </field>
 
@@ -61,7 +63,7 @@
                                     <field name="fax" />
                                     <field name="mobile" />
                                     <field name="email" />
-                                    
+
                                 </tree>
                             </field>
 
@@ -74,12 +76,12 @@
                                     <field name="phone" />
                                     <field name="company_name" />
                                     <field name="message" />
-                                    
+
                                 </tree>
                             </field>
 
                         </page>
-                        
+
                     </notebook>
                 </sheet>
             </form>
@@ -102,6 +104,6 @@
         parent='almakaan_root'
         action="contact_us_elmakan_action_window_elmakan"
         sequence="12" />
-    
+
 
 </odoo>

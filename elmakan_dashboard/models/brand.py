@@ -21,7 +21,9 @@ class BrandAlmakaan(models.Model):
     isTopBrand = fields.Boolean(string='isTopBrand',default=False)
     state = fields.Boolean(string='On WebSite',default=False)
     title_seo = fields.Char('Title SEO')
-    description_seo = fields.Char('descreption SEO')
+    description_seo = fields.Char('description SEO')
+    keywords_seo = fields.Char('Keywords SEO')
+    image_alt = fields.Char('Image alt SEO')
     @api.depends('title')
     def _compute_slug(self):
         for record in self:

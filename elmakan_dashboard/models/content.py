@@ -19,7 +19,9 @@ class ContentAlmakaan(models.Model):
     logo = fields.Binary(string='Logo')
     logo_url = fields.Char("Logo url", compute='_compute_logo_url')
     title_seo = fields.Char('Title SEO')
-    description_seo = fields.Char('descreption SEO')
+    description_seo = fields.Char('description SEO')
+    keywords_seo = fields.Char('Keywords SEO')
+    image_alt = fields.Char('Image alt SEO')
 
     @api.depends('image')
     def _compute_image_url(self):
