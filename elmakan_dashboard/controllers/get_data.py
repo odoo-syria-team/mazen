@@ -828,7 +828,13 @@ class Partners(http.Controller):
                         headers=[('Content-Type', 'application/json'), ('Content-Length', 100)])
                 kw['contactus_id']=contact_obj.id      
                 form_obj=request.env['form.content.us.elmakan'].sudo().create(kw)
-
+                lead_obj = request.env['crm.lead'].sudo().create({
+                    'name': kw.get('name'),
+                    'email_from': kw.get('email'),
+                    'phone': kw.get('phone'),
+                    'partner_name': kw.get('company_name'),
+                    'description': kw.get('message'),
+                })
                 response = json.dumps({"data":[],'message' : 'The form has been sent'}) 
                 return Response(
                     response, status=200,
