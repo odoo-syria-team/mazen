@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id_sale_catalogue,name_sale_catalogue,model_sale_catalogue,,1,1,1,1
+id_sale_catalogue_line,name_sale_catalogue_line,model_sale_catalogue_line,,1,1,1,1
+id_sale_catalogue_line2,name_sale_catalogue_line2,model_sale_catalogue_line2,,1,1,1,1
+
+
+

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="catalogue_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-foreach="o.image_ids" t-as="image">
+                    <div class="p-0 page" style="height: 100% !important; padding: 0px;">
+                        <img t-if="image.image" t-att-src="image_data_uri(image.image)" style="width: 100%; height: 1098px; padding: 0px;"/>
+                    </div>
+                    <div class="row p-1" style="padding: 0px; background: #ac783f;">
+                        <div class="text-center" style="color: white;" t-esc="env.company.website"/>
+                    </div>
+                </t>
+                <p style="page-break-after:always;"/>
+
+                <t t-set="page_number" t-value="1"/>
+                <t t-foreach="o.product_ids" t-as="product">
+                    <div t-if="page_number == 1" class="pt-3"/>
+                    <div class="page" style="font-weight: 900; height: 100% !important;">
+                        <div style="height: 400px; padding-left: 2%; padding-right: 2%;">
+                            <div t-if="product.default_code" class="pt-5" style="font-size: 18pt; font-weigth: bold; color: #811b1b;" t-field="product.default_code"/>
+                            
+                            <div t-if="product.name" class="pt-4" style="font-size: 16pt; font-weigth: bold; color: #ac783f; padding-right: 20%;" t-field="product.name"/>
+                            
+                            <table class="pt-4 table table-borderless">
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="pt-4" style="font-size: 16pt; font-weigth: bold; color: #811b1b;">Product Info</div>
+                                    </td>
+                                    <td rowspan="10" colspan="2" style="width: 50%;">
+                                        <center>
+                                            <div class="mb-4 mt-5 text-white">.</div>
+                                            <t t-if="page_number == 1"/>
+                                            <img t-if="product.image_1920" t-att-src="image_data_uri(product.image_1920)" style="width: 200px;"/>
+                                        </center>
+                                    </td>
+                                </tr>
+                                <t t-foreach="product.attribute_line_ids" t-as="line">
+                                    <tr>
+                                        <td style="font-weigth: bold;">
+                                            <div t-field="line.attribute_id"/>
+                                        </td>
+                                        <td>
+                                            <t t-foreach="line.value_ids" t-as="value">
+                                                <div style="font-weight: 500;" t-field="value.name"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                        <div style="height: 143px;"/>
+                        
+                        <t t-if="page_number % 2 == 0">
+                            <div class="row p-1" style="background: #ac783f; font-weight: normal; font-size: 10pt;">
+                                <div class="col-6 text-start" style="color: white; padding-left: 40px;" t-esc="int(page_number / 2)"/>
+                                <div class="col-6 text-end" style="color: white; padding-rignt: 40px;" t-esc="env.company.website"/>
+                            </div>
+                            <p t-if="o.product_ids[-1] != product" style="page-break-after:always;"/>
+                        </t>
+                        <t t-set="page_number" t-value="page_number + 1"/>
+                    </div>
+                </t>
+                <t t-if="page_number % 2 == 0">
+                    <div style="height: 543px;"/>
+                    <div class="row p-1" style="background: #ac783f; font-weight: normal; font-size: 10pt;">
+                        <div class="col-6 text-start" style="color: white; padding-left: 40px;" t-esc="int(page_number / 2)"/>
+                        <div class="col-6 text-end" style="color: white; padding-rignt: 40px;" t-esc="env.company.website"/>
+                    </div>
+                </t>
+
+                <!-- <div class="page" style="height: 100% !important; padding: 0px;">
+                    <center>
+                        <div class="p-5" style="font-size: 48pt; color: darkred;">OUR RANGE</div>
+                    </center>
+                </div> -->
+
+                <div>
+                    <t t-foreach="o.image_ids2" t-as="image2">
+                        <div class="p-0 page" style="height: 100% !important; padding: 0px;">
+                            <img t-if="image2.image" t-att-src="image_data_uri(image2.image)" style="width: 100%; height: 1098px; padding: 0px;"/>
+                        </div>
+                        <div class="row p-1" style="padding: 0px; background: #ac783f;">
+                            <div class="text-center" style="color: white;" t-esc="env.company.website"/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

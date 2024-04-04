@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_catalogue_tree" model="ir.ui.view">
+        <field name="name">Catalogue List</field>
+        <field name="model">sale.catalogue</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="product_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="view_sale_catalogue_form" model="ir.ui.view">
+        <field name="name">sale.catalogue.form</field>
+        <field name="model">sale.catalogue</field>
+        <field name="arch" type="xml">
+            <form string="Catalogue">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <field name="product_ids" widget="one2many_list"/>
+                        </page>
+                        <page string="Prologue Images">
+                            <field name="image_ids" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="image" widget="image" class="oe_avatar" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Epilogue Images">
+                            <field name="image_ids2" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="image" widget="image" class="oe_avatar" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_catalogue" model="ir.actions.act_window">
+        <field name="name">Catalogue</field>
+        <field name="res_model">sale.catalogue</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first user token Record! </p>
+
+        </field>
+    </record>
+
+    <menuitem id="menu_catalogue"
+        name='Catalogue'
+        action="action_catalogue"
+        sequence="11" />
+        <!-- parent='menu_product_template_action1' -->
+</odoo>
