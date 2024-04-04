@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[1]" position="after">
+                    <page string="Products">
+                        <field name="product_ids"/>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="partner_type"/>
+                </xpath>
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page string="License Info">
+                        <group>
+                            <group>
+                                <field name="license_number"/>
+                                <field name="commercial_license"/>
+                                <field name="authentication_of_signature"/>
+                                <field name="sponsor_license"/>
+                            </group>
+                            <group/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//sheet[1]" position="before">
+                    <header>
+                        <button name="action_make_distributor" attrs="{'invisible': [('partner_type', 'in', ['distributor', 'super_distributor', 'request_super_distributor'])]}"
+                                string="Upgrade to distributor" type="object" class="oe_highlight"/>
+                        <button name="action_make_super_distributor" attrs="{'invisible': [('partner_type', 'in', ['super_distributor', 'request_distributor'])]}"
+                                string="Upgrade to distributor+" type="object" class="oe_highlight"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
