@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_family_tree" model="ir.ui.view">
+        <field name="name">family List</field>
+        <field name="model">product.family</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="view_product_family_form" model="ir.ui.view">
+        <field name="name">family form</field>
+        <field name="model">product.family</field>
+        <field name="arch" type="xml">
+            <form string="family">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_family" model="ir.actions.act_window">
+        <field name="name">family</field>
+        <field name="res_model">product.family</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first user token Record! </p>
+
+        </field>
+    </record>
+
+    <menuitem id="menu_family"
+        name="Product Family"
+        action="action_family"
+        parent="catalogue_module.menu_catalogue"
+        sequence="11" />
+        
+</odoo>

@@ -19,9 +19,8 @@
             <form string="Catalogue">
                 <sheet>
                     <group>
-                        <group>
                             <field name="name" required="1" />
-                        </group>
+                            <field name="field_ids" widget="many2many_tags" required="1" />
                     </group>
                     <notebook>
                         <page string="Products">
@@ -59,9 +58,36 @@
         </field>
     </record>
 
-    <menuitem id="menu_catalogue"
+    <menuitem
+        id="main_menu_catalogue"
         name='Catalogue'
         action="action_catalogue"
-        sequence="11" />
+        sequence="11">
+
+        <menuitem 
+            id="action_menu_catalogue"
+            name='Catalogue'
+            action="action_catalogue"
+            sequence="10"/>
+
+        <menuitem 
+            id="menu_product"
+            name='Products'
+            sequence="20">
+
+            <menuitem 
+                id="action_menu_catalogue"
+                name='My Products'
+                action="stock.product_template_action_product"
+                sequence="10"/>
+
+            <menuitem 
+                id="menu_catalogue"
+                name='Configuration'
+                action="action_catalogue"
+                sequence="20"/>
+        </menuitem>
+
+    </menuitem>
         <!-- parent='menu_product_template_action1' -->
 </odoo>

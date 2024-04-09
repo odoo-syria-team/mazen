@@ -10,6 +10,7 @@ class SaleOrderInherit(models.Model):
     image_ids = fields.One2many('sale.catalogue.line', 'catalogue_id', string="Images")
     image_ids2 = fields.One2many('sale.catalogue.line2', 'catalogue_id', string="Images")
     product_ids = fields.Many2many('product.template', string="Products")
+    field_ids = fields.Many2many('ir.model.fields', string='Catalogue Products Fields', domain="[('model_id.model', '=', 'product.template'), ('ttype', '!=', 'binary')]")
 
 
 class SaleOrderLineInherit(models.Model):

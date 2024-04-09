@@ -2,6 +2,15 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 id_sale_catalogue,name_sale_catalogue,model_sale_catalogue,,1,1,1,1
 id_sale_catalogue_line,name_sale_catalogue_line,model_sale_catalogue_line,,1,1,1,1
 id_sale_catalogue_line2,name_sale_catalogue_line2,model_sale_catalogue_line2,,1,1,1,1
+id_product_color,name_product_color,model_product_color,,1,1,1,1
+id_product_basic_color,name_product_basic_color,model_product_basic_color,,1,1,1,1
+id_product_material,name_product_material,model_product_material,,1,1,1,1
+id_product_collection,name_product_collection,model_product_collection,,1,1,1,1
+id_product_piece,name_product_piece,model_product_piece,,1,1,1,1
+id_product_technology,name_product_technology,model_product_technology,,1,1,1,1
+id_product_feature,name_product_feature,model_product_feature,,1,1,1,1
+id_product_family,name_product_family,model_product_family,,1,1,1,1
+id_product_packing_type,name_product_packing_type,model_product_packing_type,,1,1,1,1
 
 
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_color_tree" model="ir.ui.view">
+        <field name="name">Color List</field>
+        <field name="model">product.color</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="view_product_color_form" model="ir.ui.view">
+        <field name="name">Color form</field>
+        <field name="model">product.color</field>
+        <field name="arch" type="xml">
+            <form string="Color">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_color" model="ir.actions.act_window">
+        <field name="name">Color</field>
+        <field name="res_model">product.color</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first user token Record! </p>
+
+        </field>
+    </record>
+
+    
+    <record id="view_product_basic_color_tree" model="ir.ui.view">
+        <field name="name">basic_color List</field>
+        <field name="model">product.basic.color</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="view_product_basic_color_form" model="ir.ui.view">
+        <field name="name">basic_color form</field>
+        <field name="model">product.basic.color</field>
+        <field name="arch" type="xml">
+            <form string="basic_color">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_basic_color" model="ir.actions.act_window">
+        <field name="name">basic_color</field>
+        <field name="res_model">product.basic.color</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first user token Record! </p>
+
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_colors"
+            name="Product Colors"
+            parent="catalogue_module.menu_catalogue"
+            sequence="11">
+                
+        <menuitem id="menu_color"
+            name="Product Color"
+            action="action_color"
+            sequence="1"/>
+        
+        <menuitem id="menu_basic_color"
+            name="Product Basic Colors"
+            action="action_basic_color"
+            sequence="2"/>
+    </menuitem>
+        
+</odoo>

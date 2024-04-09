@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Al Makaan Fields">
+                    <group>
+                    <!-- Add fields from Python code -->
+                    <field name="sku"/>
+                    <field name="brand_id1"/>
+                    <field name="origin"/>
+                    <field name="color_ids" widget="many2many_tags"/>
+                    <field name="basic_color_ids" widget="many2many_tags"/>
+                    <field name="size"/>
+                    <field name="capacity"/>
+                    <field name="material_ids" widget="many2many_tags"/>
+                    <field name="collection_ids" widget="many2many_tags"/>
+                    <field name="technology_ids" widget="many2many_tags"/>
+                    <field name="piece_ids" widget="many2many_tags"/>
+                    <field name="upc"/>
+                    <field name="test_report"/>
+                    <field name="validity"/>
+                    <field name="feature_ids" widget="many2many_tags"/>
+                    <field name="use_care"/>
+                    <field name="packing_type" widget="many2many_tags"/>
+                    <field name="carton_barcode"/>
+                    <field name="item_number"/>
+                    <field name="hs_code_1"/>
+                    <field name="hs_code_1_name"/>
+                    <field name="hs_code_2"/>
+                    <field name="hs_code_2_name"/>
+                    <field name="seo_title"/>
+                    <field name="seo_description"/>
+                    <field name="meta_description"/>
+                    <field name="e_com_description"/>
+                    <field name="description"/>
+                    <field name="ar_name"/>
+                    <field name="ar_description"/>
+                    <field name="cbm"/>
+                    <field name="weight"/>
+                    <field name="packed_weight"/>
+                    <field name="c_g_weight"/>
+                    <field name="c_n_weight"/>
+                    <field name="c_height"/>
+                    <field name="c_length"/>
+                    <field name="c_width"/>
+                    <field name="v_weight"/>
+                    <field name="width"/>
+                    <field name="length"/>
+                    <field name="height"/>
+                    <field name="thickness"/>
+                    <field name="pieces_per_set"/>
+                    <field name="set_includes"/>
+                    <field name="family" widget="many2many_tags"/>
+                    <field name="shopify_handle"/>
+                    <field name="amazon_sku"/>
+                    <field name="asin"/>
+                    <field name="noon_PSKU_code"/>
+                    <field name="noon_X_SKU_child"/>
+                    <field name="dubaiStore_Sku"/>
+                    <field name="dubaiStore_parent"/>
+                    <field name="carrefour_SKU"/>
+                    <field name="homecenter_SKU"/>
+                    <field name="storeus_SKU"/>
+                </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

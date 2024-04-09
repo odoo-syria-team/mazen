@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_technology_tree" model="ir.ui.view">
+        <field name="name">technology List</field>
+        <field name="model">product.technology</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="view_product_technology_form" model="ir.ui.view">
+        <field name="name">technology form</field>
+        <field name="model">product.technology</field>
+        <field name="arch" type="xml">
+            <form string="Technology">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_technology" model="ir.actions.act_window">
+        <field name="name">technology</field>
+        <field name="res_model">product.technology</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first user token Record! </p>
+
+        </field>
+    </record>
+
+    <menuitem id="menu_technology"
+        name="Product Technology"
+        action="action_technology"
+        parent="catalogue_module.menu_catalogue"
+        sequence="11" />
+        
+</odoo>
