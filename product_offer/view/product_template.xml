@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_offer_form" model="ir.ui.view">
+            <field name="name">offer.offer.form</field>
+            <field name="model">offer.offer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div>
+                            <group>
+                                <field name="name"/>
+                                <field name="url"/>
+                                <field name="password"/>
+                                <field name="field_ids" widget="many2many_tags"/>
+                            </group>
+                        </div>
+                        <notebook>
+                            <page string="Products">
+                                
+                                <field name="product_ids" >
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_offer_tree" model="ir.ui.view">
+            <field name="name">offer.offer.tree</field>
+            <field name="model">offer.offer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="password"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_offer_tree" model="ir.actions.act_window">
+            <field name="name">Offers</field>
+            <field name="res_model">offer.offer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new offer.
+                </p>
+            </field>
+        </record>
+        <!-- Menu Item -->
+        <menuitem id="menu_offer" name="Offers" sequence="10"/>
+        <menuitem id="menu_offer_list" name="Offer List" parent="menu_offer" action="action_offer_tree"/>
+
+        <!-- Action -->
+        
+    </data>
+</odoo>
