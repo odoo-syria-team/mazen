@@ -12,10 +12,11 @@
                                 <field name="name"/>
                                 <field name="url"/>
                                 <field name="password"/>
-                                <field name="field_ids" widget="many2many_tags"/>
+                                <field name="temp_product_ids" widget="many2many_tags"/>
+                                <field name="field_ids" widget="many2many_tags" />
                             </group>
                         </div>
-                        <notebook>
+                        <notebook invisible="1">
                             <page string="Products">
                                 
                                 <field name="product_ids" >

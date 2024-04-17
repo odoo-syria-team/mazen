@@ -1,5 +1,11 @@
 <odoo>
 
+    <record id="menu_product_template_portal" model="website.menu">
+        <field name="name">Offers</field>
+        <field name="url">/offer/table</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
     
     <template id="offer_table_page" name="Offer Table Page">
         <t t-call="website.layout">
@@ -42,7 +48,9 @@
             <div class="row">
               <t t-foreach="offer" t-as="product">
                 <div class="col-md-4 col-sm-6 mb-4"> <div class="card">
-                    <img class="card-img-top" t-attf-src="{{ product['image_url'] }}" alt="{{ product['name'] }}" />
+                    <a t-attf-href="/shop/{{product['route']}}">
+                        <img class="card-img-top" t-attf-src="{{ product['image_url'] }}" alt="{{ product['name'] }}" />
+                    </a>
                     <div class="card-body">
                       <h5 class="card-title">
                         <a t-attf-href="/shop/{{product['route']}}">
@@ -50,11 +58,13 @@
                             <t t-foreach="offer_fields" t-as="line">
                                 <div t-if="line.ttype in ['many2many', 'one2many', 'many2one']">
                                     <t t-foreach="product_ids.filtered(lambda x: x.id == product['id'])[line.name]" t-as="field_data">
-                                        <div t-if="'name' in field_data" style="font-weight: 500;" t-esc="field_data.name"/>
+                                        <div t-if="'display_name' in field_data" style="font-weight: 500;" t-esc="field_data.display_name"/>
+                                        <div t-else="" style="font-weight: 500;" t-esc="field_data.name"/>
                                     </t>
                                 </div>
                                 <div t-else="">
-                                    <div style="font-weight: 500;" t-esc="product[line.name]"/>
+                                    <!-- <div t-esc="line.name"/> -->
+                                    <div style="font-weight: 500;" t-esc="product['product_id'][line.name]"/>
                                 </div>
                             </t>
                         </a>

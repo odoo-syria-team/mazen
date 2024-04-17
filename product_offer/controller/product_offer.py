@@ -51,19 +51,20 @@ class EidOfferController(http.Controller):
                 'name' : name,
                 'image_url' : image_url,
                 'route' : self.convert_to_slug(name) + '-' +str(product.name.id),
-                'price': product.name.list_price
-                
+                'price': product.name.list_price,
+                'product_id': product.name
             })
 
-        print('old', type(default_order_by['order']))
+            print('old', product)
         if default_order_by['name'] == 'name':
             result.sort(reverse=default_order_by['order'], key=self.myFunc)
         else: 
-            result.sort(reverse=default_order_by['order'], key=self.myFunc1) 
+            result.sort(reverse=default_order_by['order'], key=self.myFunc1)
+        
         return http.request.render('product_offer.product_offer_details_page', {
                                         'offer': result, 
-
-                                        'offer_fields': offer.field_ids, 'product_ids': offer.product_ids.mapped('name'),
+                                        'offer_fields': offer.field_ids, 
+                                        'product_ids': offer.product_ids.mapped('name'),
                                         'pager': page_details,
                                         'sortby': sortby,
                                         'searchbar_sortings': sorted_list
@@ -94,10 +95,10 @@ class EidOfferController(http.Controller):
                 'route' : self.convert_to_slug(name) + '-' +str(product.name.id)
             })
         if not offer.password:
-            return request.render('product_offer.product_offer_details_page', {'offer': result , 'offer_name' : offer.name})
+            return request.redirect('/offer/details/' + str(offer_id))
         if offer and password == offer.password:
             # Password is correct, redirect to the offer details page
-            return request.render('product_offer.product_offer_details_page', {'offer': result , 'offer_name' : offer.name})
+            return request.redirect('/offer/details/' + str(offer_id))
         else:
             # Password is incorrect or offer not found, render the password check page with an error message
             error_message = 'Incorrect password' if offer else 'Offer not found'

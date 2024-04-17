@@ -10,15 +10,20 @@ class Offer(models.Model):
     url = fields.Char(string="Offer URL",readonly=True)
     field_ids = fields.Many2many('ir.model.fields', string='Offer Products Fields', domain="[('model_id.model', '=', 'product.template'), ('ttype', '!=', 'binary')]")
 
-    
+    temp_product_ids = fields.Many2many('product.template', string='Products')
     product_ids = fields.One2many('offer.product', 'offer_id', string='Products')
 
-    # @api.model
-    # def create(self, values):
-    #     base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-    #     value = super(Offer, self).create(values)
-    #     value.url = base_url +'/password/%d' % value.id
-    #     return True
+    def write(self, values):
+        value = super(Offer, self).write(values)
+        if 'temp_product_ids' in values:
+            lines = self.env['offer.product'].search([('offer_id', '=', self.id)])
+            if lines:
+                lines.unlink()
+            for product in values.get('temp_product_ids')[0][2]:                
+                self.env['offer.product'].create({'name': product, 'offer_id': self.id})
+                
+
+        return value
 
     @api.constrains('create_uid')
     def get_url_cod(self):
